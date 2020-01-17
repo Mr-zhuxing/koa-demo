@@ -1,13 +1,17 @@
 ## 搭建项目过程  
 ### 1.使用npm进行全局安装koa-generator  
+
 `npm install -g koa-generator`
 ----
 ### 2.使用koa-generator创建项目  
+
 `koa <项目名>`
 ----
 ### 3.启动项目  
-`npm start (bin/www 文件有相关配置，如端口地址)`
+
+`npm start (bin/www 文件有相关配置，如端口地址)`  
 ----
+
 ### 4.设置层级路由  
 app.js:  
 ```
