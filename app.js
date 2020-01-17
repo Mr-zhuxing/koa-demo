@@ -2,7 +2,8 @@ var app = require('koa')()
   , logger = require('koa-logger')
   , json = require('koa-json')
   , views = require('koa-views')
-  , onerror = require('koa-onerror');
+  , onerror = require('koa-onerror')
+  , router = require('koa-router')();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -29,12 +30,19 @@ app.use(function *(next){
 app.use(require('koa-static')(__dirname + '/public'));
 
 // routes definition
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
+router.use('/',index.routes());
+router.use('/users',users.routes());
+// app.use(index.routes(), index.allowedMethods());
+// app.use(users.routes(), users.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
+
+
 
 module.exports = app;
