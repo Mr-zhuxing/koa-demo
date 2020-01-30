@@ -6,7 +6,7 @@ npm install -g koa-generator
 ----
 ### 2.使用koa-generator创建项目  
 ```
-koa <项目名>
+koa2 <项目名>
 ```
 ----
 ### 3.启动项目   
