@@ -20,9 +20,8 @@ app.js:
 var router = require('koa-router')();
 var index = require('./routes/index');                  //子路由1
 var users = require('./routes/users');                  //子路由2
-app.use(router.routes()).use(router.allowedMethods());  //安装路由
-router.use('/',index.routes());                         //安装子路由1
-router.use('/users',users.routes());                    //安装子路由2
+app.use(index.routes(), index.allowedMethods())          //安装子路由1
+app.use(users.routes(), users.allowedMethods())            //安装子路由2
 ```
 ----
 ### 子路由1、2:  
