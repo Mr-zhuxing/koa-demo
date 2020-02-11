@@ -27,6 +27,7 @@ app.use(users.routes(), users.allowedMethods())            //安装子路由2
 ### 子路由1、2:  
 ```
 var router = require('koa-router')();
+router.prefix('/users')
 router.get('/', function *(next) {
   yield this.render('index', {
     title: 'Hello World Koa!'
